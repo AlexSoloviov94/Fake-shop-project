@@ -1,31 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-// jsx
-const h1 = (
-    <h1 id="title" className="fna">
-        Hello React.js
-    </h1>
-)
-console.log(h1)
+const Title = () => {
+    return <h1>Hello App.js</h1>
+}
 
-let a = 10
-let b = 'Hello test'
+const Content = () => {
+    return (
+        <React.Fragment>
+            <p>Boom</p>
+            <p>Boom</p>
+        </React.Fragment>
+    )
+}
 
-const list = (
-    <ul>
-        <li>List Item {a + 10 + 10}</li>
-        <li>List Item {b}</li>
-        <li>List Item 3</li>
-    </ul>
-)
-
-const content = (
-    <div>
-        {h1}
-        {list}
-    </div>
-)
+function App() {
+    return (
+        <>
+            <Title />
+            <Content />
+        </>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-root.render(<React.StrictMode>{content}</React.StrictMode>)
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+)
