@@ -1,15 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Content } from './Content'
-
-interface ITitleProps {
-    text: string
-}
-
-const Title = (props: ITitleProps) => {
-    console.log(props)
-    return <h1>Hello {props.text}</h1>
-}
+import Title from './Title'
 
 function App() {
     return (
