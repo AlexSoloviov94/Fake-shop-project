@@ -4,7 +4,7 @@ type Props = {
     year: number
 }
 
-const Content = (props: Props) => {
+export const Content = (props: Props) => {
     return (
         <>
             <p>{props.text1}</p>
@@ -13,4 +13,4 @@ const Content = (props: Props) => {
         </>
     )
 }
-export default Content
+// export default Content
