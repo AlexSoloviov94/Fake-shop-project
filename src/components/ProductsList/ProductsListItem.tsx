@@ -8,17 +8,21 @@ type Props = {
     price: number
 }
 
-const ProductsListItem = (props: Props) => {
+const ProductsListItem = ({
+    title,
+    description,
+    type,
+    capacity,
+    price,
+}: Props) => {
     return (
         <Card variant="outlined" className="product">
             <CardContent>
-                <div className="product-title">{props.title}</div>
-                <div className="product-desc">{props.description}</div>
-                <div className="product-features">Type: {props.type}</div>
-                <div className="product-features">
-                    Capacity: {props.capacity} Gb
-                </div>
-                <div className="product-price">{props.price}$</div>
+                <div className="product-title">{title}</div>
+                <div className="product-desc">{description}</div>
+                <div className="product-features">Type: {type}</div>
+                <div className="product-features">Capacity: {capacity} Gb</div>
+                <div className="product-price">{price}$</div>
             </CardContent>
             <CardActions className="prodect-btn-wrap">
                 <Button variant="outlined">Add to cart</Button>
