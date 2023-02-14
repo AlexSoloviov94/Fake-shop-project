@@ -29,11 +29,11 @@ const ProductsListItem = ({
     const [count, setCount] = useState<number>(1)
 
     const onIncrement = () => {
-        setCount(count + 1)
+        setCount((prevState) => prevState + 1)
     }
 
     const onDecrement = () => {
-        setCount(count - 1)
+        setCount((prevState) => prevState - 1)
     }
 
     return (
