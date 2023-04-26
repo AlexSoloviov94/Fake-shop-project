@@ -8,15 +8,15 @@ export type Product = {
     image: string
 }
 
-const productsArray: Product [] = [
-    {   
+const productsArray: Product[] = [
+    {
         id: 1,
         title: 'IPhone 14 Pro',
         description: 'This is IPhone 14 Pro',
         type: 'phone',
         capacity: '256',
         price: 1200,
-        image:"images/IPhone-black.jpg",
+        image: 'images/IPhone-black.jpg',
     },
     {
         id: 2,
@@ -25,7 +25,7 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '256',
         price: 1000,
-        image:"images/IPhone-blue.jpg",
+        image: 'images/IPhone-blue.jpg',
     },
     {
         id: 3,
@@ -34,7 +34,7 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '128',
         price: 900,
-        image:"images/IPhone-gold.jpg",
+        image: 'images/IPhone-gold.jpg',
     },
     {
         id: 4,
@@ -43,7 +43,7 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '512',
         price: 850,
-        image:"images/IPhone-green.jpg",
+        image: 'images/IPhone-green.jpg',
     },
     {
         id: 5,
@@ -52,7 +52,7 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '256',
         price: 800,
-        image:"images/IPhone-pink.jpg",
+        image: 'images/IPhone-pink.jpg',
     },
     {
         id: 6,
@@ -61,7 +61,7 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '256',
         price: 800,
-        image:"images/IPhone-purple.jpg",
+        image: 'images/IPhone-purple.jpg',
     },
     {
         id: 7,
@@ -70,7 +70,7 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '256',
         price: 750,
-        image:"images/IPhone-red.jpg",
+        image: 'images/IPhone-red.jpg',
     },
     {
         id: 8,
@@ -79,16 +79,17 @@ const productsArray: Product [] = [
         type: 'phone',
         capacity: '128',
         price: 600,
-        image:"images/IPhone-silver.jpg",
+        image: 'images/IPhone-silver.jpg',
     },
 ]
 
-
-export const getProductsObject = (array: Product[]) => array.reduce((object, product) => ({
-    ...object,
-    [product.id] : product,
-}),
-{}
-)
+export const getProductsObject = (array: Product[]) =>
+    array.reduce(
+        (object, product) => ({
+            ...object,
+            [product.id]: product,
+        }),
+        {}
+    )
 
 export default productsArray
