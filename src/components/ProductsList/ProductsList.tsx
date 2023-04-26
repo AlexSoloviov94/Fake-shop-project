@@ -1,8 +1,11 @@
 import { Grid, Typography } from '@mui/material'
 import ProductsListItem from './ProductsListItem'
-import productsArray from 'utils/productsArray'
+// import productsArray from 'utils/productsArray'
+import { useAppSelector } from 'redux/hooks'
 
 const ProductsList = () => {
+    const productsArray = useAppSelector((state) => state.products)
+
     return (
         <>
             <Typography variant="h4" align="center" component="h2">
