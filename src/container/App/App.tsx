@@ -12,6 +12,7 @@ import CheckoutPage from 'pages/Checkout/CheckoutPage'
 import { useAppDispatch } from 'redux/hooks'
 import { useEffect } from 'react'
 import { fetchProducts } from 'redux/productsReducer'
+import HomeWork from 'pages/HomeWork/HomeWork'
 
 type Props = {}
 
@@ -36,6 +37,7 @@ const App = (props: Props) => {
                     <Route path="/" element={<Home />} />
                     <Route path="cart" element={<CartPage />} />
                     <Route path="checkout" element={<CheckoutPage />} />
+                    <Route path="homeWork" element={<HomeWork />} />
                 </Routes>
             </Container>
 
