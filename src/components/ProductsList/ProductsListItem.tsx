@@ -9,6 +9,7 @@ import { useAppSelector } from 'redux/hooks'
 import { useDispatch } from 'react-redux'
 import { addLike, removeLike } from 'redux/likeReducer'
 import { addProductToCart } from 'redux/cartReduser'
+import { Link } from 'react-router-dom'
 
 type Props = {
     id: number
@@ -57,7 +58,9 @@ const ProductsListItem = ({
                 <div className="product-image">
                     <img src={image} alt="IPhone" />
                 </div>
-                <div className="product-title">{title}</div>
+                <div className="product-title">
+                    <Link to={`/products/${id}`}>{title}</Link>
+                </div>
                 <div className="product-desc">{description}</div>
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity} Gb</div>
