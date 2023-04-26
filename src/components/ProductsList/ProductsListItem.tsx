@@ -8,6 +8,7 @@ import './ProductsListItem.scss'
 import { useAppSelector } from 'redux/hooks'
 import { useDispatch } from 'react-redux'
 import { addLike, removeLike } from 'redux/likeReducer'
+import { addProductToCart } from 'redux/cartReduser'
 
 type Props = {
     id: number
@@ -17,7 +18,6 @@ type Props = {
     capacity: string
     price: number
     image: string
-    addProductToCart: (count: number, price: number) => void
 }
 
 const ProductsListItem = ({
@@ -28,7 +28,6 @@ const ProductsListItem = ({
     capacity,
     price,
     image,
-    addProductToCart,
 }: Props) => {
     const [count, setCount] = useState<number>(1)
 
@@ -72,7 +71,7 @@ const ProductsListItem = ({
             <CardActions className="prodect-btn-wrap">
                 <Button
                     variant="outlined"
-                    onClick={() => addProductToCart(id, count)}
+                    onClick={() => dispatch(addProductToCart({ id, count }))}
                 >
                     Add to cart
                 </Button>

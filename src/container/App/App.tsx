@@ -3,44 +3,20 @@ import Header from 'container/Header/Header'
 
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
-import { useState } from 'react'
+
 import { Route, Routes } from 'react-router-dom'
 import Home from 'pages/Home/Home'
 import { Container } from '@mui/material'
 import CartPage from 'pages/Cart/CartPage'
-import { omit } from 'lodash'
-import { count } from 'console'
+import CheckoutPage from 'pages/Checkout/CheckoutPage'
 
 type Props = {}
 
-type ProductsInCart = {
-    [id: number]: number
-}
-
 const App = (props: Props) => {
-    const [productsInCart, setProductsInCart] = useState<ProductsInCart>({})
-
-    const addProductToCart = (id: number, count: number) => {
-        setProductsInCart((prevState) => ({
-            ...prevState,
-            [id]: (prevState[id] || 0) + count,
-        }))
-    }
-
-    const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState) => omit(prevState, [id]))
-    }
-    const changeProductQuantity = (id: number, count: number) => {
-        setProductsInCart((prevState) => ({
-            ...prevState,
-            [id]: count,
-        }))
-    }
-
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header productsInCart={productsInCart} />
+            <Header />
 
             <Container
                 sx={{
@@ -48,20 +24,9 @@ const App = (props: Props) => {
                 }}
             >
                 <Routes>
-                    <Route
-                        path="/"
-                        element={<Home addProductToCart={addProductToCart} />}
-                    />
-                    <Route
-                        path="cart"
-                        element={
-                            <CartPage
-                                productsInCart={productsInCart}
-                                removeProductFromCart={removeProductFromCart}
-                                changeProductQuantity={changeProductQuantity}
-                            />
-                        }
-                    />
+                    <Route path="/" element={<Home />} />
+                    <Route path="cart" element={<CartPage />} />
+                    <Route path="checkout" element={<CheckoutPage />} />
                 </Routes>
             </Container>
 

@@ -2,18 +2,15 @@ import { Card, CardActions, CardContent, Grid, Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Product } from 'utils/productsArray'
 import Quantity from 'components/Quantity/Quantity'
+import { useAppDispatch } from 'redux/hooks'
+import { changeProductQuantity, removeProductFromCart } from 'redux/cartReduser'
 type Props = {
     product: Product
     productCount: number
-    removeProductFromCart: (id: number) => void
-    changeProductQuantity: (id: number, count: number) => void
 }
-const CartProductListItemExtended = ({
-    product,
-    productCount,
-    removeProductFromCart,
-    changeProductQuantity,
-}: Props) => {
+
+const CartProductListItemExtended = ({ product, productCount }: Props) => {
+    const dispatch = useAppDispatch()
     return (
         <Grid item>
             <Card>
@@ -28,14 +25,21 @@ const CartProductListItemExtended = ({
                         count={productCount}
                         onDecrement={() =>
                             productCount <= 1
-                                ? removeProductFromCart(product.id)
-                                : changeProductQuantity(
-                                      product.id,
-                                      productCount - 1
+                                ? dispatch(removeProductFromCart(product.id))
+                                : dispatch(
+                                      changeProductQuantity({
+                                          id: product.id,
+                                          count: productCount - 1,
+                                      })
                                   )
                         }
                         onIncrement={() =>
-                            changeProductQuantity(product.id, productCount + 1)
+                            dispatch(
+                                changeProductQuantity({
+                                    id: product.id,
+                                    count: productCount + 1,
+                                })
+                            )
                         }
                         minCount={0}
                     />
@@ -43,7 +47,9 @@ const CartProductListItemExtended = ({
                 <CardActions>
                     <Button
                         variant="outlined"
-                        onClick={() => removeProductFromCart(product.id)}
+                        onClick={() =>
+                            dispatch(removeProductFromCart(product.id))
+                        }
                     >
                         <DeleteIcon />
                     </Button>
