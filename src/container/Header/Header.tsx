@@ -11,7 +11,7 @@ import CartHeader from 'components/CartHeader/CartHeader'
 
 type Props = {}
 
-const Header = (props: Props) => {
+const Header = () => {
     return (
         <AppBar position="static" className="app-bar">
             <Container>
